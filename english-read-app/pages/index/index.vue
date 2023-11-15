@@ -5,6 +5,7 @@
 			<br />
 			<text>{{sentence.zh}}</text>
 			<button size="mini" @click="readEn(index)">朗读英文</button>
+			<button size="mini" @click="readZh(index)">朗读中文</button>
 			<button size="mini" @click="readEnFrom(index)">从此向后(en)</button>
 			<button size="mini" @click="readFrom(index)">从此向后(all)</button>
 			<button size="mini" @click="readFrom(index,2)">从此向后(twice)</button>
@@ -28,6 +29,9 @@
 			readEn(index) {
 				readEnglish(this.sentences[index].en);
 			},
+      readZh(index) {
+        readZh(this.sentences[index].zh);
+      },
 			async readEnFrom(index) {
 				for(let i = index; i < this.sentences.length; i++){
 					await readEnglish(this.sentences[i].en);
