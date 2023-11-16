@@ -1,5 +1,9 @@
 export default [
   {
+    en: 'Now all of the context and reducer wiring is in TasksContext.js. This keeps the components clean and uncluttered, focused on what they display rather than where they get the data:',
+    zh: '现在所有的context和reducer连接都在TasksContext.js中。这使组件保持干净整洁，专注于它们显示的内容，而不是它们从哪里获得数据:',
+  },
+  {
     en: 'Context lets you write components that “adapt to their surroundings” and display themselves differently depending on where (or, in other words, in which context) they are being rendered.',
     zh: '上下文允许您编写“适应其周围环境”的组件，并根据呈现它们的位置(或者换句话说，在哪个上下文中)以不同的方式显示它们。',
   },

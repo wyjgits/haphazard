@@ -33,6 +33,10 @@ if (uni.restoreGlobal) {
   "use strict";
   const sentences = [
     {
+      en: "Context lets you write components that “adapt to their surroundings” and display themselves differently depending on where (or, in other words, in which context) they are being rendered.",
+      zh: "上下文允许您编写“适应其周围环境”的组件，并根据呈现它们的位置(或者换句话说，在哪个上下文中)以不同的方式显示它们。"
+    },
+    {
       en: "Here is all the state setting logic migrated to a reducer function:",
       zh: "这里是迁移到reducer函数的所有状态设置逻辑:"
     },
@@ -117,6 +121,9 @@ if (uni.restoreGlobal) {
       readEn(index) {
         readEnglish(this.sentences[index].en);
       },
+      readZh(index) {
+        readZh(this.sentences[index].zh);
+      },
       async readEnFrom(index) {
         for (let i = index; i < this.sentences.length; i++) {
           await readEnglish(this.sentences[i].en);
@@ -158,6 +165,10 @@ if (uni.restoreGlobal) {
               size: "mini",
               onClick: ($event) => $options.readEn(index)
             }, "朗读英文", 8, ["onClick"]),
+            vue.createElementVNode("button", {
+              size: "mini",
+              onClick: ($event) => $options.readZh(index)
+            }, "朗读中文", 8, ["onClick"]),
             vue.createElementVNode("button", {
               size: "mini",
               onClick: ($event) => $options.readEnFrom(index)
