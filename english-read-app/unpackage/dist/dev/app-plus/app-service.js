@@ -33,6 +33,18 @@ if (uni.restoreGlobal) {
   "use strict";
   const sentences = [
     {
+      en: "Refs are an escape hatch that should be used sparingly. Manually manipulating another component’s DOM nodes makes your code even more fragile.",
+      zh: "Refs 是一个应急方案，应该谨慎使用。手动操作 另一个 组件的 DOM 节点会使你的代码更加脆弱。"
+    },
+    {
+      en: "This example shows how you can use this approach to scroll to an arbitrary node in a long list:",
+      zh: "此示例展示了如何使用此方法滚动到长列表中的任意节点：此示例展示了如何使用此方法滚动到长列表中的任意节点："
+    },
+    {
+      en: "Now all of the context and reducer wiring is in TasksContext.js. This keeps the components clean and uncluttered, focused on what they display rather than where they get the data:",
+      zh: "现在所有的context和reducer连接都在TasksContext.js中。这使组件保持干净整洁，专注于它们显示的内容，而不是它们从哪里获得数据:"
+    },
+    {
       en: "Context lets you write components that “adapt to their surroundings” and display themselves differently depending on where (or, in other words, in which context) they are being rendered.",
       zh: "上下文允许您编写“适应其周围环境”的组件，并根据呈现它们的位置(或者换句话说，在哪个上下文中)以不同的方式显示它们。"
     },
@@ -118,11 +130,11 @@ if (uni.restoreGlobal) {
     onLoad() {
     },
     methods: {
-      readEn(index) {
-        readEnglish(this.sentences[index].en);
+      readEn(sentence) {
+        readEnglish(sentence);
       },
-      readZh(index) {
-        readZh(this.sentences[index].zh);
+      readZh(sentence) {
+        readZh(sentence);
       },
       async readEnFrom(index) {
         for (let i = index; i < this.sentences.length; i++) {
@@ -146,13 +158,20 @@ if (uni.restoreGlobal) {
         null,
         vue.renderList($data.sentences, (sentence, index) => {
           return vue.openBlock(), vue.createElementBlock("view", null, [
-            vue.createElementVNode(
-              "text",
-              null,
-              vue.toDisplayString(sentence.en),
-              1
-              /* TEXT */
-            ),
+            vue.createElementVNode("view", { class: "sentence-view" }, [
+              (vue.openBlock(true), vue.createElementBlock(
+                vue.Fragment,
+                null,
+                vue.renderList(sentence.en.split(" "), (word, index2) => {
+                  return vue.openBlock(), vue.createElementBlock("text", {
+                    key: index2,
+                    onClick: ($event) => $options.readEn(word)
+                  }, vue.toDisplayString(word) + " ", 9, ["onClick"]);
+                }),
+                128
+                /* KEYED_FRAGMENT */
+              ))
+            ]),
             vue.createElementVNode("br"),
             vue.createElementVNode(
               "text",
@@ -163,11 +182,11 @@ if (uni.restoreGlobal) {
             ),
             vue.createElementVNode("button", {
               size: "mini",
-              onClick: ($event) => $options.readEn(index)
+              onClick: ($event) => $options.readEn(sentence.en)
             }, "朗读英文", 8, ["onClick"]),
             vue.createElementVNode("button", {
               size: "mini",
-              onClick: ($event) => $options.readZh(index)
+              onClick: ($event) => $options.readZh(sentence.zh)
             }, "朗读中文", 8, ["onClick"]),
             vue.createElementVNode("button", {
               size: "mini",

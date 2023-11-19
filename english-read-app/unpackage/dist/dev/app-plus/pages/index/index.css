@@ -7,19 +7,8 @@
 		padding: 0.625rem;
 		gap: 0.625rem;
 }
-.logo {
-		height: 6.25rem;
-		width: 6.25rem;
-		margin-top: 6.25rem;
-		margin-left: auto;
-		margin-right: auto;
-		margin-bottom: 1.5625rem;
-}
-.text-area {
+.sentence-view{
 		display: flex;
-		justify-content: center;
-}
-.title {
-		font-size: 1.125rem;
-		color: #8f8f94;
+		flex-wrap: wrap;
+		font-size: 1.25rem;
 }

@@ -1,11 +1,13 @@
 <template>
 	<view class="content">
 		<view v-for="(sentence, index) of sentences">
-			<text>{{sentence.en}}</text>
+			<view class="sentence-view">
+				<text v-for="(word,index) of sentence.en.split(' ')" :key="index" @click="readEn(word)">{{word}}&nbsp;</text>
+			</view>
 			<br />
 			<text>{{sentence.zh}}</text>
-			<button size="mini" @click="readEn(index)">朗读英文</button>
-			<button size="mini" @click="readZh(index)">朗读中文</button>
+			<button size="mini" @click="readEn(sentence.en)">朗读英文</button>
+			<button size="mini" @click="readZh(sentence.zh)">朗读中文</button>
 			<button size="mini" @click="readEnFrom(index)">从此向后(en)</button>
 			<button size="mini" @click="readFrom(index)">从此向后(all)</button>
 			<button size="mini" @click="readFrom(index,2)">从此向后(twice)</button>
@@ -15,7 +17,10 @@
 
 <script>
 	import sentences from './sentences.js';
-	import { readEnglish, readZh } from '../../utils/audioUtils.js';
+	import {
+		readEnglish,
+		readZh
+	} from '../../utils/audioUtils.js';
 	export default {
 		data() {
 			return {
@@ -26,20 +31,20 @@
 
 		},
 		methods: {
-			readEn(index) {
-				readEnglish(this.sentences[index].en);
+			readEn(sentence) {
+				readEnglish(sentence);
 			},
-      readZh(index) {
-        readZh(this.sentences[index].zh);
-      },
+			readZh(sentence) {
+				readZh(sentence);
+			},
 			async readEnFrom(index) {
-				for(let i = index; i < this.sentences.length; i++){
+				for (let i = index; i < this.sentences.length; i++) {
 					await readEnglish(this.sentences[i].en);
 				}
 			},
 			async readFrom(index, time = 1) {
-				for(let i = index; i < this.sentences.length; i++){
-					for(let j = 0; j< time; j++){
+				for (let i = index; i < this.sentences.length; i++) {
+					for (let j = 0; j < time; j++) {
 						await readZh(this.sentences[i].zh);
 						await readEnglish(this.sentences[i].en);
 					}
@@ -58,23 +63,9 @@
 		padding: 20rpx;
 		gap: 20rpx;
 	}
-
-	.logo {
-		height: 200rpx;
-		width: 200rpx;
-		margin-top: 200rpx;
-		margin-left: auto;
-		margin-right: auto;
-		margin-bottom: 50rpx;
-	}
-
-	.text-area {
+	.sentence-view{
 		display: flex;
-		justify-content: center;
-	}
-
-	.title {
-		font-size: 36rpx;
-		color: #8f8f94;
+		flex-wrap: wrap;
+		font-size: 1.25rem;
 	}
 </style>
