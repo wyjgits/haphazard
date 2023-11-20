@@ -33,6 +33,10 @@ if (uni.restoreGlobal) {
   "use strict";
   const sentences = [
     {
+      en: "Effects let you specify side effects that are caused by rendering itself, rather than by a particular event.",
+      zh: "Effects允许您指定由渲染本身，而不是由特定事件引起的副作用。"
+    },
+    {
       en: "Refs are an escape hatch that should be used sparingly. Manually manipulating another component’s DOM nodes makes your code even more fragile.",
       zh: "Refs 是一个应急方案，应该谨慎使用。手动操作 另一个 组件的 DOM 节点会使你的代码更加脆弱。"
     },
