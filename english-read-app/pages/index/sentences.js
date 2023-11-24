@@ -1,12 +1,16 @@
 export default [
-	{
-		en: 'If you do it well, your Effect will be resilient to being started and stopped as many times as it’s needed.',
-		zh: '如果你做得好，你的Effect就会在需要的时候被多次启动和停止。'
-	},
-	{
-		en: 'Keep in mind that your machine is probably faster than your users’ so it’s a good idea to test the performance with an artificial slowdown',
-		zh: '请记住，您的机器可能比用户更快，因此最好通过人为减速来测试性能'
-	},
+  {
+    en: 'As you’ll learn below on this page, a linter will check for these issues automatically.',
+    zh: '正如您将在本页下面了解到的，linter将自动检查这些问题。',
+  },
+  {
+    en: 'If you do it well, your Effect will be resilient to being started and stopped as many times as it’s needed.',
+    zh: '如果你做得好，你的Effect就会在需要的时候被多次启动和停止。',
+  },
+  {
+    en: 'Keep in mind that your machine is probably faster than your users’ so it’s a good idea to test the performance with an artificial slowdown',
+    zh: '请记住，您的机器可能比用户更快，因此最好通过人为减速来测试性能',
+  },
   {
     en: 'Effects should usually synchronize your components with an external system.',
     zh: 'Effects通常应将您的组件与外部系统同步。',
