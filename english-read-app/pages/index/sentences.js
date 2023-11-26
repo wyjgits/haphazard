@@ -1,5 +1,13 @@
 export default [
   {
+    en: 'By passing url as an argument to your Effect Event, you are saying that visiting a page with a different url constitutes a separate “event” from the user’s perspective.',
+    zh: '通过将 url 作为参数传给 Effect Event，你可以说从用户角度来看使用不同的 url 访问页面构成了一个独立的“事件”。',
+  },
+  {
+    en: 'As you’ll learn below on this page, a linter will check for these issues automatically.',
+    zh: '正如您将在本页下面了解到的，linter将自动检查这些问题。',
+  },
+  {
     en: 'As you’ll learn below on this page, a linter will check for these issues automatically.',
     zh: '正如您将在本页下面了解到的，linter将自动检查这些问题。',
   },
